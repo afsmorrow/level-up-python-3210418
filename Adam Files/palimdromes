@@ -1,0 +1,27 @@
+# 2/14/2023
+# must determined if string is palidrome, ignoring spaces, punctuation, case
+import string
+
+
+def is_palimdrome(input):
+    # need to get rid of all bad characters - use string.translate()
+    phrase = input.translate(str.maketrans('', '', string.punctuation)).translate(
+        str.maketrans('', '', string.digits)).translate(
+        str.maketrans('', '', string.whitespace))
+    # return phrase
+    # split into list, reverse, check against itself
+    # don't split into list, use reversed
+    revList = list(reversed(phrase))
+    rev = "".join(revList)
+    #reversed made it into some kind of object, but there's an easy workaround.
+    # still less lines
+
+    # fun fact, I only learned reversed was a thing
+    # because of a typo that led to a google search
+    # during this
+    #print(rev, phrase)
+    return rev == phrase
+
+
+test = "race car"
+print(is_palimdrome(test))

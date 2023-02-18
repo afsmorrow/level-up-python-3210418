@@ -1,0 +1,39 @@
+#2/13/2023 - need to write code to find all prime factors of number
+
+#function for finding the prime factors
+
+def get_prime_factors(input):
+    #need to find what prime numbers multiply together, make list
+    # first need to find prime numbers
+    primeList = []
+    factorList = []
+    for num in range(2, input + 1):
+    # all prime numbers are greater than 1
+      if num > 1:
+       for i in range(2, num):
+           if (num % i) == 0:
+               break
+       else:
+          # print(num) 
+          primeList.append(num)
+    primeList.reverse()
+    #print(primeList)
+    #now, divide X by largest that goes in without remainder, then repeat with new X. 
+    # Keep track of the divisors
+    for i in primeList:
+       if (input % i) == 0:
+        newInput= input/i
+        factorList.append(i)
+        #(print(newInput,factorList))
+        input = newInput
+    #final check to make sure all factors have been found
+    if newInput != 1:
+       factorList.append (int(newInput))
+       newInput = 1
+       #(print(newInput, factorList))
+    #sort and print output
+    print(sorted(factorList, reverse=True))
+
+
+x = 630
+get_prime_factors(x)

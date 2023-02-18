@@ -1,0 +1,14 @@
+#2/14/2023
+#need to sort words in alphabetical order, ignore and maintain case
+
+def sort_words(input):
+    #make the string into a list
+    wordList = input.split()
+    
+    #is there a function that ignores case?
+    #apparently
+    sortedList = sorted(wordList, key=str.casefold)
+    return sortedList
+
+test = "ALpha adam benny AARDVark StEven QuEEnY"
+print(sort_words(test))
